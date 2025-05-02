@@ -67,7 +67,7 @@ exports.updateUser = async (req, res) => {
     try {
         const { firstname, lastname, email } = req.body;
         
-        // Check if email already exists for another user
+   
         if (email) {
             const existingUser = await User.findOne({ email, _id: { $ne: req.user.id } });
             if (existingUser) {
@@ -102,7 +102,7 @@ exports.deleteUser = async (req, res) => {
     }
 };
 
-// Get user profile for the authenticated user
+
 exports.getUserProfile = async (req, res) => {
     try {
         const user = await User.findOne({ _id: req.user.id }).select('-password');

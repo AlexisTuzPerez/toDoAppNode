@@ -21,7 +21,7 @@ const getTaskById = async (req, res) => {
     }
 };
 
-// Create a new task for the user
+
 const createTask = async (req, res) => {
     try {
         const { title, description, priority, dueDate, status } = req.body;
@@ -40,7 +40,7 @@ const createTask = async (req, res) => {
     }
 };
 
-// Update a task (only if the user owns it)
+
 const updateTask = async (req, res) => {
     try {
         const updated = await Task.findOneAndUpdate(
@@ -55,7 +55,7 @@ const updateTask = async (req, res) => {
     }
 };
 
-// Delete a task (only if the user owns it)
+
 const deleteTask = async (req, res) => {
     try {
         const deleted = await Task.findOneAndDelete({ _id: req.params.id, user_id: req.user.id });
