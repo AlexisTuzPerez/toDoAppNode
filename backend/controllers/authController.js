@@ -40,12 +40,7 @@ exports.authenticate =  asyncHandler (async (req, res) => {
 
     const token = generateToken(user);
 
-    res.cookie('token', token, {
-        httpOnly: true,
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-        secure: process.env.NODE_ENV === 'production',
-        domain: process.env.NODE_ENV === 'production' ? '.yourdomain.com' : undefined
-    });
+    res.cookie('token', token, { httpOnly: true, sameSite: 'none', secure: true });
     
     res.status(200).json({ message: 'Authenticated', user: { firstname: user.firstname, lastname: user.lastname, email: user.email, role: user.role } });
 
