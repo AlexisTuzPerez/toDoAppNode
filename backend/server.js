@@ -19,7 +19,7 @@ mongoose.connect(uri)
   .catch(err => console.error('MongoDB connection error:', err));
 
 app.use(cors({
-  origin: '*',
+  origin: 'http://localhost:5173',
   credentials: true
 }));
 app.use(express.json());
