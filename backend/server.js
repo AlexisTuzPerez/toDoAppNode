@@ -8,7 +8,7 @@ dotenv.config({ path: __dirname + '/.env' });
 
 const uri = process.env.MONGO_URI  
 const JWT_SECRET = process.env.JWT_SECRET 
-
+const BASE_URL = process.env.BASE_URL
 
 
 const port = process.env.PORT
