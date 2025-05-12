@@ -1,6 +1,5 @@
 const Task = require('../models/Task');
 
-// Get all tasks for the authenticated user
 const getTasks = async (req, res) => {
     try {
         const tasks = await Task.find({ user_id: req.user.id });
@@ -10,7 +9,6 @@ const getTasks = async (req, res) => {
     }
 };
 
-// Get a single task by ID (must belong to user)
 const getTaskById = async (req, res) => {
     try {
         const task = await Task.findOne({ _id: req.params.id, user_id: req.user.id });
